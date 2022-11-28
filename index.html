@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PDC10 - LeafletJS Online Map</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>  
+    </head>
+    <body class="m-5">
+        <h1 class="text-center">
+            <span style="background: -webkit-linear-gradient(#eee, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;">
+            Top 10 Places</span> On Gab's Bucket List
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 18 18">
+                <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Z"/>
+              </svg>
+        </h1>
+        <div id="map" style="height: 800px;" class="mt-4 rounded-4">
+            <script>
+
+                var map = L.map('map').setView([36.4059, 140.5965], 2);
+
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+
+                // Hitachi Seaside Park                
+                var marker = L.marker([36.4059, 140.5965]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([36.4059, 140.5965])
+                .setContent("Hitachi Seaside Park, Hitachinaka, Ibaraki, Japan")
+                .addTo(map);
+
+                // Bamboo Forest
+                var marker = L.marker([35.0093, 135.7788]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([35.0093, 135.7788])
+                .setContent("Sagano Bamboo Forest, Kyoto, Japan")
+                .addTo(map);
+
+                // Street in Bonn, Germany
+                var marker = L.marker([50.733334, 7.098207]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([50.733334, 7.098207])
+                .setContent("Street in Bonn, North Rhine-Westphalia, Germany")
+                .addTo(map);
+
+                // Wisteria Flower Tunnel
+                var marker = L.marker([33.8323, 130.7922]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([33.8323, 130.7922])
+                .setContent("Wisteria Flower Tunnel, Fukuoka, Japan")
+                .addTo(map);
+
+                // Tianzi Mountain
+                var marker = L.marker([29.379314, 110.46364]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([29.379314, 110.46364])
+                .setContent("Tianzi Mountain, Zhangjiajie, Hunan, China")
+                .addTo(map);
+
+                // Shibazakura Flowers
+                var marker = L.marker([44.1970, 143.0775]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([44.1970, 143.0775])
+                .setContent("Shibazakura Takinoue Park, Japan")
+                .addTo(map);
+
+                // Antelope Canyon, USA
+                var marker = L.marker([36.8619, -111.3743]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([36.8619, -111.3743])
+                .setContent("Antelope Canyon, Arizona, USA")
+                .addTo(map);
+
+                // Lake Retba, Senegal
+                var marker = L.marker([14.8388, -17.2341]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([14.8388, -17.2341])
+                .setContent("Lake Retba, Senegal")
+                .addTo(map);
+
+                // Tulip Fields in Netherlands
+                var marker = L.marker([52.269386, 4.548342]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([52.269386, 4.548342])
+                .setContent("Tulip Fields in Netherlands")
+                .addTo(map);
+
+                // Alhambra, Spain
+                var marker = L.marker([37.1761, -3.5881]).addTo(map);
+
+                var popup = L.popup()
+                .setLatLng([37.1761, -3.5881])
+                .setContent("Alhambra, Spain")
+                .addTo(map);
+
+                // Polygon
+                var latlngs = [
+                [52.269386, 4.548342],
+                [37.1761, -3.5881],
+                [50.733334, 7.098207]
+                ];
+                var polygon = L.polygon(latlngs, {color: '#9ec1a3'});
+                polygon.addTo(map);
+
+                // Polyline
+                var latlngs = [[44.1970, 143.0775], [36.4059, 140.5965], [35.0093, 135.7788], [33.8323, 130.7922], ];
+                var polyline = L.polyline(latlngs, {color: '#70a9a1'});
+                polyline.addTo(map);
+
+                // Circle
+                var circleCenter = [14.8388, -17.2341];
+                var circleOptions = {
+                color: '#1f363d',
+                fillOpacity: 0
+                }
+                var circle = L.circle(circleCenter, 50000, circleOptions);
+                circle.addTo(map);
+
+                // Rectangle
+                var latlngs = [[36.8619, -111.3743], [40.8119, -108.4243]];
+                var rectOptions = {color: '#cfe0c3', weight: 2}
+                var rectangle = L.rectangle(latlngs, rectOptions);
+                rectangle.addTo(map);
+            </script>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
+</html>
