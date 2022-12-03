@@ -117,7 +117,12 @@
                 polygon.addTo(map);
 
                 // Polyline
-                var latlngs = [[44.1970, 143.0775], [36.4059, 140.5965], [35.0093, 135.7788], [33.8323, 130.7922], ];
+                var latlngs = [[44.1970, 143.0775], [36.4059, 140.5965], [35.0093, 135.7788], [33.8323, 130.7922]];
+                var polyline = L.polyline(latlngs, {color: '#70a9a1'});
+                polyline.addTo(map);
+
+                // Letter G
+                var latlngs = [[63.548552, 117.421875], [63.548552, 107.421875], [53.548552, 107.421875], [53.548552, 117.421875], [58.548552, 117.421875], [58.548552, 112.421875],];
                 var polyline = L.polyline(latlngs, {color: '#70a9a1'});
                 polyline.addTo(map);
 
@@ -135,8 +140,21 @@
                 var rectOptions = {color: '#cfe0c3', weight: 2}
                 var rectangle = L.rectangle(latlngs, rectOptions);
                 rectangle.addTo(map);
+
+                var popup = L.popup();
+
+                function onMapClick(e) {
+                popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+                }
+
+                map.on('click', onMapClick);
             </script>
         </div>
+
+        
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
